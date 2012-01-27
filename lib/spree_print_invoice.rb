@@ -1,4 +1,3 @@
-require 'print_invoice_hooks'
 require 'prawn_handler'
 
 
@@ -7,7 +6,7 @@ module PrintInvoice
     
     def self.activate
 
-      Admin::OrdersController.class_eval do
+      Spree::Admin::OrdersController.class_eval do
         if Spree.version < '0.60'
           respond_to :html
           alias_method :load_order, :load_object
